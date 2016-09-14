@@ -57,40 +57,35 @@ impl Stream for AsyncINotify {
         // BUG-ish: This returns cached events in a reversed order. Usually, that shouldn't be a
         // problem though.
         if self.cached_events.len() > 0 {
+            if self.cached_events.len() == 1 {
+                self.io.need_read()
+            }
             return Ok(Async::Ready(self.cached_events.pop()));
         }
 
         match self.io.poll_read() {
-            Async::NotReady => return Ok(Async::NotReady),
+            Async::NotReady => {
+                return Ok(Async::NotReady);
+            }
             Async::Ready(_) => (), // proceed
         }
 
         // the inner fd is non-blocking by default (set in the inotify crate)
-        let events_try = self.inner.available_events();
+        let events = try!(self.inner.available_events());
 
-        if is_wouldblock(&events_try) {
-            self.io.need_read();
-            return Ok(Async::NotReady);
-        }
-
-        let events = try!(events_try);
         // Only do vec operations if there are many events
         if events.len() < 1 {
+            // If EWOULDBLOCK is returned, inotify returns an empty slice. Signal that we want
+            // more.
+            self.io.need_read();
             Ok(Async::NotReady)
         } else if events.len() == 1 {
+            self.io.need_read();
             Ok(Async::Ready(Some(events[0].clone())))
         } else {
             // events.len() > 1
             self.cached_events.extend_from_slice(&events[1..]);
             Ok(Async::Ready(Some(events[0].clone())))
         }
-    }
-}
-
-// Stolen from tokio-sore: src/reactor/poll_evented.rs:250
-fn is_wouldblock<T>(r: &io::Result<T>) -> bool {
-    match *r {
-        Ok(_) => false,
-        Err(ref e) => e.kind() == io::ErrorKind::WouldBlock,
     }
 }

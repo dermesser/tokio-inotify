@@ -44,11 +44,8 @@ impl AsyncINotify {
     }
 
     pub fn close(self) -> io::Result<()> {
+        // FD is removed from loop by PollEvented::drop()
         self.inner.close()
-    }
-
-    fn available_events(&mut self) -> io::Result<&[Event]> {
-        self.inner.available_events()
     }
 }
 
@@ -63,9 +60,20 @@ impl Stream for AsyncINotify {
             return Ok(Async::Ready(self.cached_events.pop()));
         }
 
-        // the inner fd is non-blocking by default (set in the inotify crate)
-        let events = try!(self.inner.available_events());
+        match self.io.poll_read() {
+            Async::NotReady => return Ok(Async::NotReady),
+            Async::Ready(_) => (), // proceed
+        }
 
+        // the inner fd is non-blocking by default (set in the inotify crate)
+        let events_try = self.inner.available_events();
+
+        if is_wouldblock(&events_try) {
+            self.io.need_read();
+            return Ok(Async::NotReady);
+        }
+
+        let events = try!(events_try);
         // Only do vec operations if there are many events
         if events.len() < 1 {
             Ok(Async::NotReady)
@@ -76,5 +84,13 @@ impl Stream for AsyncINotify {
             self.cached_events.extend_from_slice(&events[1..]);
             Ok(Async::Ready(Some(events[0].clone())))
         }
+    }
+}
+
+// Stolen from tokio-sore: src/reactor/poll_evented.rs:250
+fn is_wouldblock<T>(r: &io::Result<T>) -> bool {
+    match *r {
+        Ok(_) => false,
+        Err(ref e) => e.kind() == io::ErrorKind::WouldBlock,
     }
 }

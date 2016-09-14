@@ -5,4 +5,6 @@ extern crate tokio_core;
 
 mod wrap;
 
+pub use inotify::ffi::*;
+
 pub use wrap::AsyncINotify;

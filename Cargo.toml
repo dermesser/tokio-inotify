@@ -1,0 +1,11 @@
+[package]
+name = "tokio-inotify"
+version = "0.1.0"
+authors = ["Lewin Bormann <lewin@lewin-bormann.info>"]
+
+[dependencies]
+futures = "0.1.1"
+tokio-core = "0.1.0"
+mio = "0.6.0"
+inotify = "0.2.3"
+

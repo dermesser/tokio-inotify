@@ -18,10 +18,12 @@ pub struct AsyncINotify {
 }
 
 impl AsyncINotify {
+    /// Create a new inotify stream on the loop behind `handle`.
     pub fn init(handle: &Handle) -> io::Result<AsyncINotify> {
         AsyncINotify::init_with_flags(handle, 0)
     }
 
+    /// Create a new inotify stream with the given inotify flags (`IN_NONBLOCK` or `IN_CLOEXEC`).
     pub fn init_with_flags(handle: &Handle, flags: isize) -> io::Result<AsyncINotify> {
         let inotify = try!(INotify::init_with_flags(flags));
         let evfd = Io::from_raw_fd(inotify.fd);
@@ -35,14 +37,19 @@ impl AsyncINotify {
         })
     }
 
+    /// Monitor `path` for the events in `mask`. For a list of events, see
+    /// https://dermesser.github.io/tokio-inotify/doc/inotify/ffi/index.html (items prefixed with
+    /// "Event")
     pub fn add_watch(&self, path: &Path, mask: u32) -> io::Result<Watch> {
         self.inner.add_watch(path, mask)
     }
 
+    /// Remove an element currently watched.
     pub fn rm_watch(&self, watch: Watch) -> io::Result<()> {
         self.inner.rm_watch(watch)
     }
 
+    /// Close the underlying file descriptor and remove it from the event loop.
     pub fn close(self) -> io::Result<()> {
         // FD is removed from loop by PollEvented::drop()
         self.inner.close()

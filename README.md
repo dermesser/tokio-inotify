@@ -1,5 +1,7 @@
 # tokio-inotify
 
+[Documentation](https://dermesser.github.io/tokio-inotify/doc/tokio_inotify/struct.AsyncINotify.html)
+
 The `tokio_inotify` crate enables the use of inotify file descriptors in the `tokio` framework.
 It builds on the [`inotify`](https://github.com/hannobraun/inotify-rs) crate by wrapping
 the `INotify` type into a new type called `AsyncINotify`, and implementing

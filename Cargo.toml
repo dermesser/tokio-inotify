@@ -2,6 +2,11 @@
 name = "tokio-inotify"
 version = "0.2.0"
 authors = ["Lewin Bormann <lewin@lewin-bormann.info>"]
+license = "MIT"
+keywords = ["inotify", "tokio", "async", "filesystem"]
+description = "Stream-based access to filesystem events."
+repository = "https://github.com/dermesser/tokio-inotify"
+documentation = "http://dermesser.github.io/tokio-inotify/doc/tokio-inotify/"
 
 [dependencies]
 futures = "0.1.1"

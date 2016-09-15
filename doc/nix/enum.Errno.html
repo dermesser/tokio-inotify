@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Errno` enum in crate `nix`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Errno">
+
+    <title>nix::Errno - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>nix</a></p><script>window.sidebarCurrent = {name: 'Errno', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='index.html'>nix</a>::<wbr><a class='enum' href=''>Errno</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-337' class='srclink' href='../src/nix/errno.rs.html#526-662' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum Errno {
+    UnknownErrno,
+    EPERM,
+    ENOENT,
+    ESRCH,
+    EINTR,
+    EIO,
+    ENXIO,
+    E2BIG,
+    ENOEXEC,
+    EBADF,
+    ECHILD,
+    EAGAIN,
+    ENOMEM,
+    EACCES,
+    EFAULT,
+    ENOTBLK,
+    EBUSY,
+    EEXIST,
+    EXDEV,
+    ENODEV,
+    ENOTDIR,
+    EISDIR,
+    EINVAL,
+    ENFILE,
+    EMFILE,
+    ENOTTY,
+    ETXTBSY,
+    EFBIG,
+    ENOSPC,
+    ESPIPE,
+    EROFS,
+    EMLINK,
+    EPIPE,
+    EDOM,
+    ERANGE,
+    EDEADLK,
+    ENAMETOOLONG,
+    ENOLCK,
+    ENOSYS,
+    ENOTEMPTY,
+    ELOOP,
+    ENOMSG,
+    EIDRM,
+    ECHRNG,
+    EL2NSYNC,
+    EL3HLT,
+    EL3RST,
+    ELNRNG,
+    EUNATCH,
+    ENOCSI,
+    EL2HLT,
+    EBADE,
+    EBADR,
+    EXFULL,
+    ENOANO,
+    EBADRQC,
+    EBADSLT,
+    EBFONT,
+    ENOSTR,
+    ENODATA,
+    ETIME,
+    ENOSR,
+    ENONET,
+    ENOPKG,
+    EREMOTE,
+    ENOLINK,
+    EADV,
+    ESRMNT,
+    ECOMM,
+    EPROTO,
+    EMULTIHOP,
+    EDOTDOT,
+    EBADMSG,
+    EOVERFLOW,
+    ENOTUNIQ,
+    EBADFD,
+    EREMCHG,
+    ELIBACC,
+    ELIBBAD,
+    ELIBSCN,
+    ELIBMAX,
+    ELIBEXEC,
+    EILSEQ,
+    ERESTART,
+    ESTRPIPE,
+    EUSERS,
+    ENOTSOCK,
+    EDESTADDRREQ,
+    EMSGSIZE,
+    EPROTOTYPE,
+    ENOPROTOOPT,
+    EPROTONOSUPPORT,
+    ESOCKTNOSUPPORT,
+    EOPNOTSUPP,
+    EPFNOSUPPORT,
+    EAFNOSUPPORT,
+    EADDRINUSE,
+    EADDRNOTAVAIL,
+    ENETDOWN,
+    ENETUNREACH,
+    ENETRESET,
+    ECONNABORTED,
+    ECONNRESET,
+    ENOBUFS,
+    EISCONN,
+    ENOTCONN,
+    ESHUTDOWN,
+    ETOOMANYREFS,
+    ETIMEDOUT,
+    ECONNREFUSED,
+    EHOSTDOWN,
+    EHOSTUNREACH,
+    EALREADY,
+    EINPROGRESS,
+    ESTALE,
+    EUCLEAN,
+    ENOTNAM,
+    ENAVAIL,
+    EISNAM,
+    EREMOTEIO,
+    EDQUOT,
+    ENOMEDIUM,
+    EMEDIUMTYPE,
+    ECANCELED,
+    ENOKEY,
+    EKEYEXPIRED,
+    EKEYREVOKED,
+    EKEYREJECTED,
+    EOWNERDEAD,
+    ENOTRECOVERABLE,
+    ERFKILL,
+    EHWPOISON,
+}</pre><h2 class='variants'>Variants</h2>
+<span id='variant.UnknownErrno' class='variant'><code>UnknownErrno</code></span><span id='variant.EPERM' class='variant'><code>EPERM</code></span><span id='variant.ENOENT' class='variant'><code>ENOENT</code></span><span id='variant.ESRCH' class='variant'><code>ESRCH</code></span><span id='variant.EINTR' class='variant'><code>EINTR</code></span><span id='variant.EIO' class='variant'><code>EIO</code></span><span id='variant.ENXIO' class='variant'><code>ENXIO</code></span><span id='variant.E2BIG' class='variant'><code>E2BIG</code></span><span id='variant.ENOEXEC' class='variant'><code>ENOEXEC</code></span><span id='variant.EBADF' class='variant'><code>EBADF</code></span><span id='variant.ECHILD' class='variant'><code>ECHILD</code></span><span id='variant.EAGAIN' class='variant'><code>EAGAIN</code></span><span id='variant.ENOMEM' class='variant'><code>ENOMEM</code></span><span id='variant.EACCES' class='variant'><code>EACCES</code></span><span id='variant.EFAULT' class='variant'><code>EFAULT</code></span><span id='variant.ENOTBLK' class='variant'><code>ENOTBLK</code></span><span id='variant.EBUSY' class='variant'><code>EBUSY</code></span><span id='variant.EEXIST' class='variant'><code>EEXIST</code></span><span id='variant.EXDEV' class='variant'><code>EXDEV</code></span><span id='variant.ENODEV' class='variant'><code>ENODEV</code></span><span id='variant.ENOTDIR' class='variant'><code>ENOTDIR</code></span><span id='variant.EISDIR' class='variant'><code>EISDIR</code></span><span id='variant.EINVAL' class='variant'><code>EINVAL</code></span><span id='variant.ENFILE' class='variant'><code>ENFILE</code></span><span id='variant.EMFILE' class='variant'><code>EMFILE</code></span><span id='variant.ENOTTY' class='variant'><code>ENOTTY</code></span><span id='variant.ETXTBSY' class='variant'><code>ETXTBSY</code></span><span id='variant.EFBIG' class='variant'><code>EFBIG</code></span><span id='variant.ENOSPC' class='variant'><code>ENOSPC</code></span><span id='variant.ESPIPE' class='variant'><code>ESPIPE</code></span><span id='variant.EROFS' class='variant'><code>EROFS</code></span><span id='variant.EMLINK' class='variant'><code>EMLINK</code></span><span id='variant.EPIPE' class='variant'><code>EPIPE</code></span><span id='variant.EDOM' class='variant'><code>EDOM</code></span><span id='variant.ERANGE' class='variant'><code>ERANGE</code></span><span id='variant.EDEADLK' class='variant'><code>EDEADLK</code></span><span id='variant.ENAMETOOLONG' class='variant'><code>ENAMETOOLONG</code></span><span id='variant.ENOLCK' class='variant'><code>ENOLCK</code></span><span id='variant.ENOSYS' class='variant'><code>ENOSYS</code></span><span id='variant.ENOTEMPTY' class='variant'><code>ENOTEMPTY</code></span><span id='variant.ELOOP' class='variant'><code>ELOOP</code></span><span id='variant.ENOMSG' class='variant'><code>ENOMSG</code></span><span id='variant.EIDRM' class='variant'><code>EIDRM</code></span><span id='variant.ECHRNG' class='variant'><code>ECHRNG</code></span><span id='variant.EL2NSYNC' class='variant'><code>EL2NSYNC</code></span><span id='variant.EL3HLT' class='variant'><code>EL3HLT</code></span><span id='variant.EL3RST' class='variant'><code>EL3RST</code></span><span id='variant.ELNRNG' class='variant'><code>ELNRNG</code></span><span id='variant.EUNATCH' class='variant'><code>EUNATCH</code></span><span id='variant.ENOCSI' class='variant'><code>ENOCSI</code></span><span id='variant.EL2HLT' class='variant'><code>EL2HLT</code></span><span id='variant.EBADE' class='variant'><code>EBADE</code></span><span id='variant.EBADR' class='variant'><code>EBADR</code></span><span id='variant.EXFULL' class='variant'><code>EXFULL</code></span><span id='variant.ENOANO' class='variant'><code>ENOANO</code></span><span id='variant.EBADRQC' class='variant'><code>EBADRQC</code></span><span id='variant.EBADSLT' class='variant'><code>EBADSLT</code></span><span id='variant.EBFONT' class='variant'><code>EBFONT</code></span><span id='variant.ENOSTR' class='variant'><code>ENOSTR</code></span><span id='variant.ENODATA' class='variant'><code>ENODATA</code></span><span id='variant.ETIME' class='variant'><code>ETIME</code></span><span id='variant.ENOSR' class='variant'><code>ENOSR</code></span><span id='variant.ENONET' class='variant'><code>ENONET</code></span><span id='variant.ENOPKG' class='variant'><code>ENOPKG</code></span><span id='variant.EREMOTE' class='variant'><code>EREMOTE</code></span><span id='variant.ENOLINK' class='variant'><code>ENOLINK</code></span><span id='variant.EADV' class='variant'><code>EADV</code></span><span id='variant.ESRMNT' class='variant'><code>ESRMNT</code></span><span id='variant.ECOMM' class='variant'><code>ECOMM</code></span><span id='variant.EPROTO' class='variant'><code>EPROTO</code></span><span id='variant.EMULTIHOP' class='variant'><code>EMULTIHOP</code></span><span id='variant.EDOTDOT' class='variant'><code>EDOTDOT</code></span><span id='variant.EBADMSG' class='variant'><code>EBADMSG</code></span><span id='variant.EOVERFLOW' class='variant'><code>EOVERFLOW</code></span><span id='variant.ENOTUNIQ' class='variant'><code>ENOTUNIQ</code></span><span id='variant.EBADFD' class='variant'><code>EBADFD</code></span><span id='variant.EREMCHG' class='variant'><code>EREMCHG</code></span><span id='variant.ELIBACC' class='variant'><code>ELIBACC</code></span><span id='variant.ELIBBAD' class='variant'><code>ELIBBAD</code></span><span id='variant.ELIBSCN' class='variant'><code>ELIBSCN</code></span><span id='variant.ELIBMAX' class='variant'><code>ELIBMAX</code></span><span id='variant.ELIBEXEC' class='variant'><code>ELIBEXEC</code></span><span id='variant.EILSEQ' class='variant'><code>EILSEQ</code></span><span id='variant.ERESTART' class='variant'><code>ERESTART</code></span><span id='variant.ESTRPIPE' class='variant'><code>ESTRPIPE</code></span><span id='variant.EUSERS' class='variant'><code>EUSERS</code></span><span id='variant.ENOTSOCK' class='variant'><code>ENOTSOCK</code></span><span id='variant.EDESTADDRREQ' class='variant'><code>EDESTADDRREQ</code></span><span id='variant.EMSGSIZE' class='variant'><code>EMSGSIZE</code></span><span id='variant.EPROTOTYPE' class='variant'><code>EPROTOTYPE</code></span><span id='variant.ENOPROTOOPT' class='variant'><code>ENOPROTOOPT</code></span><span id='variant.EPROTONOSUPPORT' class='variant'><code>EPROTONOSUPPORT</code></span><span id='variant.ESOCKTNOSUPPORT' class='variant'><code>ESOCKTNOSUPPORT</code></span><span id='variant.EOPNOTSUPP' class='variant'><code>EOPNOTSUPP</code></span><span id='variant.EPFNOSUPPORT' class='variant'><code>EPFNOSUPPORT</code></span><span id='variant.EAFNOSUPPORT' class='variant'><code>EAFNOSUPPORT</code></span><span id='variant.EADDRINUSE' class='variant'><code>EADDRINUSE</code></span><span id='variant.EADDRNOTAVAIL' class='variant'><code>EADDRNOTAVAIL</code></span><span id='variant.ENETDOWN' class='variant'><code>ENETDOWN</code></span><span id='variant.ENETUNREACH' class='variant'><code>ENETUNREACH</code></span><span id='variant.ENETRESET' class='variant'><code>ENETRESET</code></span><span id='variant.ECONNABORTED' class='variant'><code>ECONNABORTED</code></span><span id='variant.ECONNRESET' class='variant'><code>ECONNRESET</code></span><span id='variant.ENOBUFS' class='variant'><code>ENOBUFS</code></span><span id='variant.EISCONN' class='variant'><code>EISCONN</code></span><span id='variant.ENOTCONN' class='variant'><code>ENOTCONN</code></span><span id='variant.ESHUTDOWN' class='variant'><code>ESHUTDOWN</code></span><span id='variant.ETOOMANYREFS' class='variant'><code>ETOOMANYREFS</code></span><span id='variant.ETIMEDOUT' class='variant'><code>ETIMEDOUT</code></span><span id='variant.ECONNREFUSED' class='variant'><code>ECONNREFUSED</code></span><span id='variant.EHOSTDOWN' class='variant'><code>EHOSTDOWN</code></span><span id='variant.EHOSTUNREACH' class='variant'><code>EHOSTUNREACH</code></span><span id='variant.EALREADY' class='variant'><code>EALREADY</code></span><span id='variant.EINPROGRESS' class='variant'><code>EINPROGRESS</code></span><span id='variant.ESTALE' class='variant'><code>ESTALE</code></span><span id='variant.EUCLEAN' class='variant'><code>EUCLEAN</code></span><span id='variant.ENOTNAM' class='variant'><code>ENOTNAM</code></span><span id='variant.ENAVAIL' class='variant'><code>ENAVAIL</code></span><span id='variant.EISNAM' class='variant'><code>EISNAM</code></span><span id='variant.EREMOTEIO' class='variant'><code>EREMOTEIO</code></span><span id='variant.EDQUOT' class='variant'><code>EDQUOT</code></span><span id='variant.ENOMEDIUM' class='variant'><code>ENOMEDIUM</code></span><span id='variant.EMEDIUMTYPE' class='variant'><code>EMEDIUMTYPE</code></span><span id='variant.ECANCELED' class='variant'><code>ECANCELED</code></span><span id='variant.ENOKEY' class='variant'><code>ENOKEY</code></span><span id='variant.EKEYEXPIRED' class='variant'><code>EKEYEXPIRED</code></span><span id='variant.EKEYREVOKED' class='variant'><code>EKEYREVOKED</code></span><span id='variant.EKEYREJECTED' class='variant'><code>EKEYREJECTED</code></span><span id='variant.EOWNERDEAD' class='variant'><code>EOWNERDEAD</code></span><span id='variant.ENOTRECOVERABLE' class='variant'><code>ENOTRECOVERABLE</code></span><span id='variant.ERFKILL' class='variant'><code>ERFKILL</code></span><span id='variant.EHWPOISON' class='variant'><code>EHWPOISON</code></span><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-24' class='srclink' href='../src/nix/errno.rs.html#56-82' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.last' class='method'><code>fn <a href='#method.last' class='fnname'>last</a>() -&gt; Self</code></h4>
+<h4 id='method.desc' class='method'><code>fn <a href='#method.desc' class='fnname'>desc</a>(self) -&gt; &amp;'static <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></h4>
+<h4 id='method.from_i32' class='method'><code>fn <a href='#method.from_i32' class='fnname'>from_i32</a>(err: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>) -&gt; <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></h4>
+<h4 id='method.clear' class='method'><code>unsafe fn <a href='#method.clear' class='fnname'>clear</a>()</code></h4>
+<h4 id='method.result' class='method'><code>fn <a href='#method.result' class='fnname'>result</a>&lt;S:&nbsp;<a class='trait' href='../nix/errno/trait.ErrnoSentinel.html' title='nix::errno::ErrnoSentinel'>ErrnoSentinel</a> + <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&lt;S&gt;&gt;(value: S) -&gt; <a class='type' href='../nix/type.Result.html' title='nix::Result'>Result</a>&lt;S&gt;</code></h4>
+<div class='docblock'><p>Returns <code>Ok(value)</code> if it does not contain the sentinel value. This
+should not be used when <code>-1</code> is not the errno sentinel value.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-191' class='srclink' href='../src/nix/errno.rs.html#525' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-192' class='srclink' href='../src/nix/errno.rs.html#525' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>This method tests for <code>self</code> and <code>other</code> values to be equal, and is used by <code>==</code>. <a href="https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#tymethod.eq">Read more</a></p>
+</div><h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>This method tests for <code>!=</code>.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-198' class='srclink' href='../src/nix/errno.rs.html#525' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-201' class='srclink' href='../src/nix/errno.rs.html#525' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html' title='std::error::Error'>Error</a> for <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-42' class='srclink' href='../src/nix/errno.rs.html#102-106' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.description' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description' class='fnname'>description</a>(&amp;self) -&gt; &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a></code></h4>
+<div class='docblock'><p>A short description of the error. <a href="https://doc.rust-lang.org/nightly/std/error/trait.Error.html#tymethod.description">Read more</a></p>
+</div><h4 id='method.cause' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html#method.cause' class='fnname'>cause</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='trait' href='https://doc.rust-lang.org/nightly/std/error/trait.Error.html' title='std::error::Error'>Error</a>&gt;</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>The lower-level cause of this error, if any.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='enum' href='../nix/enum.Errno.html' title='nix::Errno'>Errno</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-45' class='srclink' href='../src/nix/errno.rs.html#108-112' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "nix";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

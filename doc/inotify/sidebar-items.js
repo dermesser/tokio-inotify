@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ffi","Bindings for inotify"],["wrapper","Idiomatic wrapper for inotify"]]});

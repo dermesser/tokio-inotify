@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ffi` mod in crate `inotify`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ffi">
+
+    <title>inotify::ffi - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>inotify</a></p><script>window.sidebarCurrent = {name: 'ffi', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>inotify</a>::<wbr><a class='mod' href=''>ffi</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-6' class='srclink' href='../../src/inotify/ffi.rs.html#1-319' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Bindings for inotify</p>
+
+<p>There are four types of statics:</p>
+
+<ul>
+<li><strong>Flags</strong>, to be passed to <code>inotify_init1()</code>;</li>
+<li><strong>Events</strong>, that describe which events should be
+watched for (when calling <code>inotify_add_watch()</code>),
+and which event has occured (when returned by
+<code>read()</code>);</li>
+<li><strong>Options</strong>, which can be added to the bit mask
+passed to <code>inotify_add_watch()</code>, to change default
+behavior;</li>
+<li><strong>Infos</strong>, indicating further details of the event
+that occured (returned by <code>read()</code>).</li>
+</ul>
+
+<p>When events occur for monitored files and directories, those events
+are made available to the application as structured data that can
+be read from the inotify file descriptor using <code>read()</code>.</p>
+
+<p>When all file descriptors referring to an inotify instance have been
+closed (using <code>close()</code>), the underlying object and its resources
+are freed for reuse by the kernel; all associated watches are
+automatically freed.</p>
+
+<p>A programmer wanting to use inotify should also carefully read through
+the <a href="http://man7.org/linux/man-pages/man7/inotify.7.html">inotify(7)</a> man page, which contains many caveats, warnings, and
+recommendations for proper, robust, and efficient usage of inotify.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.inotify_event.html'
+                                  title='inotify::ffi::inotify_event'>inotify_event</a></td>
+                           <td class='docblock short'>
+                                <p>Describes an event.</p>
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_ACCESS.html'
+                                  title='inotify::ffi::IN_ACCESS'>IN_ACCESS</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File was accessed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_ALL_EVENTS.html'
+                                  title='inotify::ffi::IN_ALL_EVENTS'>IN_ALL_EVENTS</a></td>
+                           <td class='docblock short'>
+                                <p>Event: Any event occured.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_ATTRIB.html'
+                                  title='inotify::ffi::IN_ATTRIB'>IN_ATTRIB</a></td>
+                           <td class='docblock short'>
+                                <p>Event: Metadata has changed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_CLOEXEC.html'
+                                  title='inotify::ffi::IN_CLOEXEC'>IN_CLOEXEC</a></td>
+                           <td class='docblock short'>
+                                <p>Flag: Set the FD_CLOEXEC flag</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_CLOSE.html'
+                                  title='inotify::ffi::IN_CLOSE'>IN_CLOSE</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File opened was closed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_CLOSE_NOWRITE.html'
+                                  title='inotify::ffi::IN_CLOSE_NOWRITE'>IN_CLOSE_NOWRITE</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File not opened for writing was closed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_CLOSE_WRITE.html'
+                                  title='inotify::ffi::IN_CLOSE_WRITE'>IN_CLOSE_WRITE</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File opened for writing was closed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_CREATE.html'
+                                  title='inotify::ffi::IN_CREATE'>IN_CREATE</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File or directory was created.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_DELETE.html'
+                                  title='inotify::ffi::IN_DELETE'>IN_DELETE</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File or directory was deleted.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_DELETE_SELF.html'
+                                  title='inotify::ffi::IN_DELETE_SELF'>IN_DELETE_SELF</a></td>
+                           <td class='docblock short'>
+                                <p>Event: Watched file or directory was deleted.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_DONT_FOLLOW.html'
+                                  title='inotify::ffi::IN_DONT_FOLLOW'>IN_DONT_FOLLOW</a></td>
+                           <td class='docblock short'>
+                                <p>Option: Don&#39;t dereference (if self is a symlink).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_EXCL_UNLINK.html'
+                                  title='inotify::ffi::IN_EXCL_UNLINK'>IN_EXCL_UNLINK</a></td>
+                           <td class='docblock short'>
+                                <p>Option: Don&#39;t watch unlinked children.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_IGNORED.html'
+                                  title='inotify::ffi::IN_IGNORED'>IN_IGNORED</a></td>
+                           <td class='docblock short'>
+                                <p>Info: Watch was removed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_ISDIR.html'
+                                  title='inotify::ffi::IN_ISDIR'>IN_ISDIR</a></td>
+                           <td class='docblock short'>
+                                <p>Info: Subject of this event is a directory.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_MASK_ADD.html'
+                                  title='inotify::ffi::IN_MASK_ADD'>IN_MASK_ADD</a></td>
+                           <td class='docblock short'>
+                                <p>Option: Add events to an existing watch instead of replacing it.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_MODIFY.html'
+                                  title='inotify::ffi::IN_MODIFY'>IN_MODIFY</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File was modified.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_MOVE.html'
+                                  title='inotify::ffi::IN_MOVE'>IN_MOVE</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File or directory was moved away or in.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_MOVED_FROM.html'
+                                  title='inotify::ffi::IN_MOVED_FROM'>IN_MOVED_FROM</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File or directory was moved away.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_MOVED_TO.html'
+                                  title='inotify::ffi::IN_MOVED_TO'>IN_MOVED_TO</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File or directory was moved in.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_MOVE_SELF.html'
+                                  title='inotify::ffi::IN_MOVE_SELF'>IN_MOVE_SELF</a></td>
+                           <td class='docblock short'>
+                                <p>Event: Watched file or directory was moved.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_NONBLOCK.html'
+                                  title='inotify::ffi::IN_NONBLOCK'>IN_NONBLOCK</a></td>
+                           <td class='docblock short'>
+                                <p>Flag: Set the O_NONBLOCK file status flag</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_ONESHOT.html'
+                                  title='inotify::ffi::IN_ONESHOT'>IN_ONESHOT</a></td>
+                           <td class='docblock short'>
+                                <p>Option: Listen for one event, then remove the watch.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_ONLYDIR.html'
+                                  title='inotify::ffi::IN_ONLYDIR'>IN_ONLYDIR</a></td>
+                           <td class='docblock short'>
+                                <p>Option: Don&#39;t watch children (if self is a directory).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_OPEN.html'
+                                  title='inotify::ffi::IN_OPEN'>IN_OPEN</a></td>
+                           <td class='docblock short'>
+                                <p>Event: File was opened.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_Q_OVERFLOW.html'
+                                  title='inotify::ffi::IN_Q_OVERFLOW'>IN_Q_OVERFLOW</a></td>
+                           <td class='docblock short'>
+                                <p>Info: Event queue overflowed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='constant' href='constant.IN_UNMOUNT.html'
+                                  title='inotify::ffi::IN_UNMOUNT'>IN_UNMOUNT</a></td>
+                           <td class='docblock short'>
+                                <p>Info: Filesystem containing self was unmounted.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.close.html'
+                                  title='inotify::ffi::close'>close</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.inotify_add_watch.html'
+                                  title='inotify::ffi::inotify_add_watch'>inotify_add_watch</a></td>
+                           <td class='docblock short'>
+                                <p>Manipulates the &quot;watch list&quot; associated with an inotify instance.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.inotify_init.html'
+                                  title='inotify::ffi::inotify_init'>inotify_init</a></td>
+                           <td class='docblock short'>
+                                <p>Creates an inotify instance.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.inotify_init1.html'
+                                  title='inotify::ffi::inotify_init1'>inotify_init1</a></td>
+                           <td class='docblock short'>
+                                <p>Creates an inotify instance.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.inotify_rm_watch.html'
+                                  title='inotify::ffi::inotify_rm_watch'>inotify_rm_watch</a></td>
+                           <td class='docblock short'>
+                                <p>Removes an item from an inotify watch list.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.read.html'
+                                  title='inotify::ffi::read'>read</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "inotify";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

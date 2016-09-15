@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `inotify_event` struct in crate `inotify`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, inotify_event">
+
+    <title>inotify::ffi::inotify_event - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>inotify</a>::<wbr><a href='index.html'>ffi</a></p><script>window.sidebarCurrent = {name: 'inotify_event', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>inotify</a>::<wbr><a href='index.html'>ffi</a>::<wbr><a class='struct' href=''>inotify_event</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-53' class='srclink' href='../../src/inotify/ffi.rs.html#261-293' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct inotify_event {
+    pub wd: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a>,
+    pub mask: <a class='type' href='../../libc/type.uint32_t.html' title='libc::uint32_t'>uint32_t</a>,
+    pub cookie: <a class='type' href='../../libc/type.uint32_t.html' title='libc::uint32_t'>uint32_t</a>,
+    pub len: <a class='type' href='../../libc/type.uint32_t.html' title='libc::uint32_t'>uint32_t</a>,
+}</pre><div class='docblock'><p>Describes an event.</p>
+
+<blockquote>
+<p>To determine what events have occurred, an application <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a>s
+from the inotify file descriptor.  If no events have so far occurred,
+then, assuming a blocking file descriptor, <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a> will block until
+at least one event occurs (unless interrupted by a signal, in which
+case the call fails with the error EINTR; see <a href="http://man7.org/linux/man-pages/man2/read.2.html">signal(7)</a>).</p>
+
+<p>Each successful <a href="http://man7.org/linux/man-pages/man2/read.2.html">read(2)</a> returns a buffer containing one or more of
+this structure.</p>
+</blockquote>
+</div><h2 class='fields'>Fields</h2><span id='structfield.wd' class='structfield'><code>wd: <a class='type' href='../../libc/type.c_int.html' title='libc::c_int'>c_int</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Identifies the watch for which this event occurs.</p>
+
+<p>It is one of the watch descriptors returned by a previous call
+to <code>inotify_add_watch()</code>.</p>
+</div><span id='structfield.mask' class='structfield'><code>mask: <a class='type' href='../../libc/type.uint32_t.html' title='libc::uint32_t'>uint32_t</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>Contains bits that describe the event that occurred.</p>
+</div><span id='structfield.cookie' class='structfield'><code>cookie: <a class='type' href='../../libc/type.uint32_t.html' title='libc::uint32_t'>uint32_t</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>A unique integer that connects related events.</p>
+
+<p>Currently used only for rename events. A related pair of
+IN_MOVED_FROM and IN_MOVED_TO events will have the same,
+non-zero, cookie. For all other events, cookie is 0.</p>
+</div><span id='structfield.len' class='structfield'><code>len: <a class='type' href='../../libc/type.uint32_t.html' title='libc::uint32_t'>uint32_t</a></code>
+                           </span><span class='stab '></span><div class='docblock'><p>The length of <code>name</code>.</p>
+
+<p>Used to determine the size of this structure. When <code>name</code>
+isn&#39;t present (<code>name</code> is only present when an event occurs
+for a file inside a watched directory), it is 0. When <code>name</code>
+<em>is</em> present, it counts all of <code>name</code>&#39;s bytes, including <code>\0</code>.</p>
+
+<blockquote>
+<p>The <code>name</code> field is present only when an event is returned for
+a file inside a watched directory; it identifies the file
+pathname relative to the watched directory. This pathname is
+null-terminated, and may include further null bytes (&#39;\0&#39;) to
+align subsequent reads to a suitable address boundary.</p>
+</blockquote>
+
+<p>The <code>name</code> field must be ommited in this definition.</p>
+</div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../inotify/ffi/struct.inotify_event.html' title='inotify::ffi::inotify_event'>inotify_event</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-36' class='srclink' href='../../src/inotify/ffi.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+<div class='docblock'><p>Formats the value using the given formatter.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../inotify/ffi/struct.inotify_event.html' title='inotify::ffi::inotify_event'>inotify_event</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-45' class='srclink' href='../../src/inotify/ffi.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../inotify/ffi/struct.inotify_event.html' title='inotify::ffi::inotify_event'>inotify_event</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-46' class='srclink' href='../../src/inotify/ffi.rs.html#259' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../inotify/ffi/struct.inotify_event.html' title='inotify::ffi::inotify_event'>inotify_event</a></code></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "inotify";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

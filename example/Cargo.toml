@@ -1,0 +1,9 @@
+[package]
+name = "inot-test"
+version = "0.1.0"
+authors = ["Lewin Bormann <lewin@lewin-bormann.info>"]
+
+[dependencies]
+futures = "0.1.1"
+tokio-core = "0.1.0"
+tokio-inotify = "0.2"

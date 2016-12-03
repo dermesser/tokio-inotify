@@ -38,7 +38,7 @@ impl AsyncINotify {
     }
 
     /// Monitor `path` for the events in `mask`. For a list of events, see
-    /// https://dermesser.github.io/tokio-inotify/doc/inotify/ffi/index.html (items prefixed with
+    /// https://docs.rs/tokio-inotify/0.2.1/tokio_inotify/struct.AsyncINotify.html (items prefixed with
     /// "Event")
     pub fn add_watch(&self, path: &Path, mask: u32) -> io::Result<Watch> {
         self.inner.add_watch(path, mask)

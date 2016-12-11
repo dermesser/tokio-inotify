@@ -6,8 +6,9 @@ use futures::stream::Stream;
 use mio::deprecated::unix::Io;
 use tokio_core::reactor::{Handle, PollEvented};
 
-use std::path::Path;
 use std::io;
+use std::os::unix::io::FromRawFd;
+use std::path::Path;
 
 /// Wraps an INotify object and provides asynchronous methods based on the inner object.
 pub struct AsyncINotify {
@@ -26,7 +27,7 @@ impl AsyncINotify {
     /// Create a new inotify stream with the given inotify flags (`IN_NONBLOCK` or `IN_CLOEXEC`).
     pub fn init_with_flags(handle: &Handle, flags: isize) -> io::Result<AsyncINotify> {
         let inotify = try!(INotify::init_with_flags(flags));
-        let evfd = Io::from_raw_fd(inotify.fd);
+        let evfd = unsafe { Io::from_raw_fd(inotify.fd) };
 
         let pollev = try!(PollEvented::new(evfd, handle));
 

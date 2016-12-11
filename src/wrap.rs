@@ -25,7 +25,7 @@ impl AsyncINotify {
     }
 
     /// Create a new inotify stream with the given inotify flags (`IN_NONBLOCK` or `IN_CLOEXEC`).
-    pub fn init_with_flags(handle: &Handle, flags: isize) -> io::Result<AsyncINotify> {
+    pub fn init_with_flags(handle: &Handle, flags: i32) -> io::Result<AsyncINotify> {
         let inotify = try!(INotify::init_with_flags(flags));
         let evfd = unsafe { Io::from_raw_fd(inotify.fd) };
 

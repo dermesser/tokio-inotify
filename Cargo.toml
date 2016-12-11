@@ -1,6 +1,6 @@
 [package]
 name = "tokio-inotify"
-version = "0.2.2"
+version = "0.3.0"
 authors = ["Lewin Bormann <lewin@lewin-bormann.info>"]
 license = "MIT"
 keywords = ["inotify", "tokio", "async", "filesystem"]
@@ -12,5 +12,5 @@ documentation = "https://docs.rs/tokio-inotify"
 futures = "0.1.1"
 tokio-core = "0.1.0"
 mio = "0.6.0"
-inotify = "0.2.3"
+inotify = "0.3"
 

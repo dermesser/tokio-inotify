@@ -1,11 +1,12 @@
 extern crate futures;
-extern crate tokio_inotify;
 extern crate tokio_core;
+extern crate tokio_inotify;
 
 use std::path::Path;
 use std::env;
 
 use futures::stream::Stream;
+use futures::prelude::*;
 use tokio_inotify::AsyncINotify;
 use tokio_core::reactor::Core;
 
@@ -23,18 +24,23 @@ fn home_dir() -> String {
 
 fn main() {
     let mut evloop = Core::new().unwrap();
+    let handle = evloop.handle();
 
     let inot = AsyncINotify::init(&evloop.handle()).unwrap();
-    inot.add_watch(Path::new(&home_dir()),
-                   tokio_inotify::IN_CREATE | tokio_inotify::IN_DELETE)
-        .unwrap();
+    inot.add_watch(
+        Path::new(&home_dir()),
+        tokio_inotify::IN_CREATE | tokio_inotify::IN_DELETE,
+    ).unwrap();
 
     let show_events = inot.for_each(|ev| {
-        if ev.is_create() {
-            println!("created {}", ev.name);
-        } else if ev.is_delete() {
-            println!("deleted {}", ev.name);
-        }
+        handle.spawn(futures::future::poll_fn(move || {
+            if ev.is_create() {
+                println!("created {}", ev.name);
+            } else if ev.is_delete() {
+                println!("deleted {}", ev.name);
+            }
+            Ok(Async::Ready(()))
+        }));
         Ok(())
     });
 

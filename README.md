@@ -1,5 +1,7 @@
 # tokio-inotify
 
+**NOTE: The `inotify` crate now offers a `Stream`-based API. It is recommended to use it directly.**
+
 [![crates.io](https://img.shields.io/crates/v/tokio-inotify.svg)](https://crates.io/crates/tokio-inotify)
 
 [Documentation](https://docs.rs/tokio-inotify/)
